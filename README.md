@@ -1,6 +1,6 @@
 # Date and Color Pickers 
 
-![AppIcon128](Images/AppIcon128.png) This is the starter project code for the video on diving into Date and Color Pickers.
+![AppIcon128](Images/AppIcon128.png) This is the completed source code for the video on diving into Date and Color Pickers.
 
 Release Date: February 1, 2026
 

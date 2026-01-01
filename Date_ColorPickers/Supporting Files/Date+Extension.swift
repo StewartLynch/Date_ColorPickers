@@ -18,9 +18,8 @@ import Foundation
 extension Date {
     /// Returns a date that is `offset` days from this date.
     /// - Parameter offset: The number of days to add or subtract from `self`.
-    /// - Returns: A new `Date` `offset` days earlier than `self`.
+    /// - Returns: A new `Date` `offset` days days before or after `self`.
     func offset(_ offset: Int) -> Date {
         Calendar.current.date(byAdding: .day, value: offset, to: self)!
     }
 }
-

@@ -18,13 +18,34 @@
 import SwiftUI
 
 struct MultiDatePickers: View {
-    
+    @State private var dates: Set<DateComponents> = []
+    @Environment(\.calendar) private var calendar
+    @Environment(\.timeZone) private var timeZone
+    let columns: [GridItem] = [GridItem(.adaptive(minimum: 100))]
+    private var selectedDates: [Date] {
+        dates.compactMap { compontents in
+            var comps = compontents
+            comps.timeZone = timeZone
+            return calendar.date(from: comps)
+        }
+        .sorted()
+    }
        var body: some View {
         VStack{
             ViewOption.third.descrView
             ScrollView {
                 DisplayContainer("Multi-Date Pickers") {
-                    
+                    MultiDatePicker("Multiple Dates",
+                                    selection: $dates,
+                                    in: Date.now.offset(1)...
+                    )
+                }
+                ScrollView(.vertical) {
+                    LazyVGrid(columns: columns) {
+                        ForEach(selectedDates, id: \.self) { date in
+                            Text(date.formatted(date: .abbreviated, time: .omitted))
+                        }
+                    }
                 }
             }
             .scrollBounceBehavior(.basedOnSize)

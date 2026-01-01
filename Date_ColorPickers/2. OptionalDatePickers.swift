@@ -17,12 +17,39 @@
 import SwiftUI
 
 struct OptionalDatesPicker: View {
+    @State private var selectedDate: Date?
+    private var dateBinding: Binding<Date> {
+        Binding {
+            selectedDate ?? Date.now
+        } set: { setDate in
+            selectedDate = setDate
+        }
 
+    }
     var body: some View {
         VStack{
             ViewOption.second.descrView
             DisplayContainer("Optional Dates") {
-                
+                LabeledContent("Select Date"){
+                    if selectedDate != nil {
+                        HStack {
+                            DatePicker("Select Date",
+                                       selection: dateBinding,
+                                       displayedComponents: .date
+                            )
+                            .labelsHidden()
+                            Button {
+                                selectedDate = nil
+                            } label: {
+                                Image(systemName: "xmark.circle.fill")
+                            }
+                        }
+                    } else {
+                        Button("Add Date") {
+                            selectedDate = Date.now
+                        }
+                    }
+                }
             }
             Spacer()
         }

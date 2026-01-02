@@ -47,7 +47,7 @@ struct ColorPickers: View {
                         .fill(Color(cgColor: color3))
                         .frame(height: 50)
                     if let comps = color3.components {
-                        Text("Red \(comps[1])")
+                        Text("Red \(comps[0])")
                         let compString = comps.map {
                             String(format: "%.1f", $0)
                         }.joined(separator: ", ")

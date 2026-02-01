@@ -2,7 +2,9 @@
 
 ![AppIcon128](Images/AppIcon128.png) This is the starter project code for the video on diving into Date and Color Pickers.
 
-Release Date: February 1, 2026
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=O540BJGGpYw
+" target="_blank"><img src="http://img.youtube.com/vi/O540BJGGpYw/0.jpg" 
+alt="Date and Color Pickers" width="480" height="360" border="1" /></a>
 
 If you want to support my work, you can - </br>
 
